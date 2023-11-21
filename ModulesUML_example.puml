@@ -1,0 +1,27 @@
+@startuml Modules
+
+' Write all modules here
+object ModuleA {
+    * list
+    * up
+    * what
+    * this
+    * has
+}
+
+object ModuleB {
+    * list
+    * up
+}
+
+object Utils #LightBlue {
+    * helpful
+    * functions
+}
+
+' Write all dependencies here
+' X --> Y means X depends on Y
+ModuleA --> Utils
+ModuleB --> Utils
+
+@enduml
