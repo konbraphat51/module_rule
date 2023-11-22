@@ -21,8 +21,12 @@ This is intended for avoiding
 
 1. Basically depend on **sub-modules**
 2. depends on **co-level** (in the same directory) module, you **MUST** create/update the Modules Dependency UML of that directory.
-3. **Only data-class super-module** is **ALLOWED** to import; but any other else **super-modules** are **NOT** allowed to import.
-4. If need to depend on another package (directory), create/update the Modules Dependency UML of the highest directory.
+3. **Only data-class direct-super-module** is **ALLOWED** to import; but any other else **direct-super-modules** are **NOT** allowed to import.
+4. If need to depend on another package, create/update the Modules Dependency UML of the **lowest-common** package.
 5. If there are **sub-modules** of module A, **make a package** A and put them all in it. **And make the package able to used as a single module by `__init__.py`**
 6. If import the **co-level module**: import by **module** name  
    If import the **sub-module**: import by **package** name
+7. If using another level-1 directory module: import by level-1 **package** name  
+   If using the same level-1 directory module: import by **module** name
+
+### Example
