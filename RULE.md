@@ -19,8 +19,8 @@ This is intended for avoiding
 
 ### Keys
 
-1. Basically depend on **sub-modules**. **Main module** should be the same name as the package(=directory) name, and the **sub-modules** in the **same directory**
-2. When depends on **co-level** (in the same directory) module, you **MUST** create/update the Modules Dependency UML of that directory.
+1. [Basically depend on **sub-modules**. **Main module** should be the same name as the package(=directory) name, and the **sub-modules** in the **same directory**](#1-basically-depend-on-sub-modules-main-module-should-be-the-same-name-as-the-packagedirectory-name-and-the-sub-modules-in-the-same-directory)
+2. [When depends on **co-level** (in the same directory) module, you **MUST** create/update the Dependency UML of that directory.](#2-when-depends-on-co-level-in-the-same-directory-module-you-must-createupdate-the-modules-dependency-uml-of-that-directory)
 3. **Only data-class direct-super-module** is **ALLOWED** to import; but any other else **direct-super-modules** are **NOT** allowed to import.  
    **Data-classes** must not depend on **logic-classes**, and should have each dependency UML for each level-1-directory.
 4. If need to depend on another package, create/update the Modules Dependency UML of the **lowest-common** package.
@@ -47,3 +47,21 @@ In this case,
 #### 2. When depends on **co-level** (in the same directory) module, you **MUST** create/update the Modules Dependency UML of that directory.
 
 ![image](https://github.com/konbraphat51/module_rule/assets/101827492/5c06ed97-eba3-41af-82cd-d350e5e221c2)
+
+In here, `ABBA.py` and `ABBB.py` are **co-level** module.
+
+In `ABBB.py`, there is:
+
+```python
+from PythonRoot.A.AB.ABB.ABBA import abba
+```
+
+This means `ABBB.py` is depending on `ABBA.py`
+
+If there is other than sub -> main dependency within the package, [you have to draw a Dependency UML of the package](#drawing-dependency-uml).
+
+In this case, the Dependency UML of `ABB` package will be:
+
+![image](https://github.com/konbraphat51/module_rule/assets/101827492/43a23278-f0d9-4406-a4e0-85f5e09cd692)
+
+## Drawing Dependency UML
