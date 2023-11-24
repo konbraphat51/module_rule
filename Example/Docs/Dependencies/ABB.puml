@@ -4,21 +4,15 @@
 
 ' Write all modules here
 object ABB #Pink {
-    * list
-    * up
-    * what
-    * this
-    * has
+    * abb
 }
 
 object ABBA {
-    * list
-    * up
+    * abba
 }
 
 object ABBB {
-    * helpful
-    * functions
+    * abbb
 }
 
 ' Write all dependencies here
