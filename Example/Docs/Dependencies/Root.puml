@@ -1,0 +1,18 @@
+@startuml Dependency_Root
+
+' Write all modules here
+object A {
+    * aa()
+    * ab()
+}
+
+object Utils #LightBlue {
+    * Vector
+    * Consts
+}
+
+' Write all dependencies here
+' X --> Y means X depends on Y
+A --> Utils
+
+@enduml
