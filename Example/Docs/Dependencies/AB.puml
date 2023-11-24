@@ -3,6 +3,10 @@
 ' https://www.plantuml.com/plantuml/uml/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000
 
 ' Write all modules here
+object AB #Pink {
+    * ab
+}
+
 object ABA {
     * aba
 }
@@ -14,5 +18,8 @@ object ABB {
 ' Write all dependencies here
 ' X --> Y means X depends on Y
 ABB --> ABA : abba uses abaa
+
+ABA --> AB : uses
+ABB --> AB : uses
 
 @enduml
