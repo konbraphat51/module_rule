@@ -22,13 +22,13 @@ This is intended for avoiding
 1. [Basically depend on **sub-modules**. **Main module** should be the same name as the package(=directory) name, and the **sub-modules** in the **same directory**](#1-basically-depend-on-sub-modules-main-module-should-be-the-same-name-as-the-packagedirectory-name-and-the-sub-modules-in-the-same-directory)
 2. [When depends on **co-level** (in the same directory) module, you **MUST** create/update the Dependency UML of that directory.](#2-when-depends-on-co-level-in-the-same-directory-module-you-must-createupdate-the-modules-dependency-uml-of-that-directory)
 3. [**Only data-class** of super-modules is **ALLOWED** to import; but any other else **direct-super-modules** are **NOT** allowed to import.
-   **Data-classes** must not depend on **logic-classes**, and should have each dependency UML for each level-1-directory.](#3-only-data-class-direct-super-module-is-allowed-to-import-but-any-other-else-direct-super-modules-are-not-allowed-to-import-data-classes-must-not-depend-on-logic-classes-and-should-have-each-dependency-uml-for-each-level-1-directory)
+   **Data-classes** must not depend on **logic-classes**, and should have each dependency UML for each level-1-directory.](#3-only-data-class-of-super-modules-is-allowed-to-import-but-any-other-else-direct-super-modules-are-not-allowed-to-import-data-classes-must-not-depend-on-logic-classes-and-should-have-each-dependency-uml-for-each-level-1-directory)
 4. [If need to depend on another package, create/update the Modules Dependency UML of the **lowest-common** package.](#4-if-need-to-depend-on-another-package-createupdate-the-modules-dependency-uml-of-the-lowest-common-package)
 5. [If there are **sub-modules** of module A, **make a package** A and put them all in it. **And conceal the package able to used as a single module by `__init__.py`**](#5-if-there-are-sub-modules-of-module-a-make-a-package-a-and-put-them-all-in-it-and-conceal-the-package-able-to-used-as-a-single-module-by-__init__py)
 6. [If import the **co-directory module**: import by **module** name
    If import the **sub-directory**: import by **package** name (=sub-directory name)](#6-if-import-the-co-directory-module-import-by-module-name-if-import-the-sub-directory-import-by-package-name-sub-directory-name)
-7. If using another level-1 directory module: import by level-1 **package** name  
-   If using the same level-1 directory module: import by **module** name
+7. [If using another level-1 directory module: import by level-1 **package** name  
+   If using the same level-1 directory module: import by **module** name](#7-if-using-another-level-1-directory-module-import-by-level-1-package-name-if-using-the-same-level-1-directory-module-import-by-module-name)
 
 ### Details
 
@@ -125,5 +125,32 @@ from A.AA import aa
 ```
 
 Of course, to enable importing from **package** name, your wanted function/class should be in `__init__.py` of the package.
+
+This rule is for avoiding circular reference.
+
+#### 7. If using another level-1 directory module: import by level-1 **package** name. If using the same level-1 directory module: import by **module** name.
+
+Among this example:  
+![image](https://github.com/konbraphat51/module_rule/assets/101827492/ec92668f-ea44-404b-b32b-d28c91220f8e)
+
+package `A` and `Utils` is **level-1-directory module**s.
+
+If `ABAA.py` wants to import `Utils.Vector`(diffrent level-1-directory),
+
+```python
+#from package name
+from PythonRoot.Utils import Vector
+```
+
+If `ABBA.py` wants to import `ABAA.py` (the same level-1-directory),
+
+```python
+#from module name
+from PythonRoot.A.AB.ABA.ABAA import abaa
+```
+
+This rule is for avoiding circular reference.
+
+[Don't forget to draw UML](#drawing-dependency-uml)
 
 ## Drawing Dependency UML
