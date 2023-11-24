@@ -1,4 +1,6 @@
 @startuml Dependency_
+' Image can be obtained from
+' https://www.plantuml.com/plantuml/uml/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000
 
 ' Write all modules here
 object ModuleA {
