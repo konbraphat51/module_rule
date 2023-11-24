@@ -1,0 +1,29 @@
+@startuml Dependency_ABB
+' Image can be obtained from
+' https://www.plantuml.com/plantuml/uml/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000
+
+' Write all modules here
+object ABB #Pink {
+    * list
+    * up
+    * what
+    * this
+    * has
+}
+
+object ABBA {
+    * list
+    * up
+}
+
+object ABBB {
+    * helpful
+    * functions
+}
+
+' Write all dependencies here
+' X --> Y means X depends on Y
+ABBB --> ABBA : uses
+ABB --> ABBB : uses
+
+@enduml
