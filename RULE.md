@@ -25,8 +25,8 @@ This is intended for avoiding
    **Data-classes** must not depend on **logic-classes**, and should have each dependency UML for each level-1-directory.](#3-only-data-class-direct-super-module-is-allowed-to-import-but-any-other-else-direct-super-modules-are-not-allowed-to-import-data-classes-must-not-depend-on-logic-classes-and-should-have-each-dependency-uml-for-each-level-1-directory)
 4. [If need to depend on another package, create/update the Modules Dependency UML of the **lowest-common** package.](#4-if-need-to-depend-on-another-package-createupdate-the-modules-dependency-uml-of-the-lowest-common-package)
 5. [If there are **sub-modules** of module A, **make a package** A and put them all in it. **And conceal the package able to used as a single module by `__init__.py`**](#5-if-there-are-sub-modules-of-module-a-make-a-package-a-and-put-them-all-in-it-and-conceal-the-package-able-to-used-as-a-single-module-by-__init__py)
-6. If import the **co-directory module**: import by **module** name  
-   If import the **sub-directory**: import by **package** name (=sub-directory name)
+6. [If import the **co-directory module**: import by **module** name
+   If import the **sub-directory**: import by **package** name (=sub-directory name)](#6-if-import-the-co-directory-module-import-by-module-name-if-import-the-sub-directory-import-by-package-name-sub-directory-name)
 7. If using another level-1 directory module: import by level-1 **package** name  
    If using the same level-1 directory module: import by **module** name
 
@@ -107,5 +107,23 @@ from A.AA import aa
 ```
 
 as if `AA` package were a module.
+
+#### 6. If import the **co-directory module**: import by **module** name. If import the **sub-directory**: import by **package** name (=sub-directory name)
+
+**module name** is refering the file path.  
+**package name** is refering the directory path.
+
+Example:
+![image](https://github.com/konbraphat51/module_rule/assets/101827492/4421c74a-4ca2-4810-b1b6-fd1b8c5a4cdd)
+
+```python
+#module name
+from A.AA.AA import aa
+
+#package name
+from A.AA import aa
+```
+
+Of course, to enable importing from **package** name, your wanted function/class should be in `__init__.py` of the package.
 
 ## Drawing Dependency UML
