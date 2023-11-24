@@ -4,18 +4,18 @@
 
 ' Write all modules here
 object AB_DataA {
-    * list
-    * up
+    * data
+    * data
 }
 
 object AB_DataB {
-    * list
-    * up
+    * data
+    * data
 }
 
 object Vector {
-    * helpful
-    * functions
+    * Vector(Basic)
+    * Vector2D
 }
 
 ' Write all dependencies here
