@@ -23,7 +23,7 @@ This is intended for avoiding
 2. [When depends on **co-level** (in the same directory) module, you **MUST** create/update the Dependency UML of that directory.](#2-when-depends-on-co-level-in-the-same-directory-module-you-must-createupdate-the-modules-dependency-uml-of-that-directory)
 3. [**Only data-class** of super-modules is **ALLOWED** to import; but any other else **direct-super-modules** are **NOT** allowed to import.
    **Data-classes** must not depend on **logic-classes**, and should have each dependency UML for each level-1-directory.](#3-only-data-class-direct-super-module-is-allowed-to-import-but-any-other-else-direct-super-modules-are-not-allowed-to-import-data-classes-must-not-depend-on-logic-classes-and-should-have-each-dependency-uml-for-each-level-1-directory)
-4. If need to depend on another package, create/update the Modules Dependency UML of the **lowest-common** package.
+4. [If need to depend on another package, create/update the Modules Dependency UML of the **lowest-common** package.](#4-if-need-to-depend-on-another-package-createupdate-the-modules-dependency-uml-of-the-lowest-common-package)
 5. If there are **sub-modules** of module A, **make a package** A and put them all in it. **And conceal the package able to used as a single module by `__init__.py`**
 6. If import the **co-directory module**: import by **module** name  
    If import the **sub-directory**: import by **package** name (=sub-directory name)
@@ -68,9 +68,20 @@ In this case, the Dependency UML of `ABB` package will be:
 
 **Data-class** is a class to contain a data, not processing anything. Because this class will be an interface between modules, this is specially allowed to import from super-modules.
 
-But **logid-class**(Processing things) is not.
+But **logid-class** (processing things) is not.
 
 Denpendency UML of **All data class** should be drawn like this:  
 ![image](https://github.com/konbraphat51/module_rule/assets/101827492/efb16ffc-9bf8-4ede-80ab-854133cd3611)
+
+#### 4. If need to depend on another package, create/update the Modules Dependency UML of the **lowest-common** package.
+
+**lowest-common** means:  
+ When `A->B` dependency, the lowest level directory of `A` and `B` exists.
+
+When `A_A_A` depends on `A_B_B`, in the case below:  
+![Image](https://user-images.githubusercontent.com/101827492/285468378-8136fd12-3065-419e-93cc-8a2729a641b8.png)  
+the **lowest-common package** is `A_directory`
+
+Draw a dependency on the UML of **lowest-common package**
 
 ## Drawing Dependency UML
