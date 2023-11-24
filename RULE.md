@@ -30,4 +30,4 @@ This is intended for avoiding
 7. If using another level-1 directory module: import by level-1 **package** name  
    If using the same level-1 directory module: import by **module** name
 
-### Example
+### Details
