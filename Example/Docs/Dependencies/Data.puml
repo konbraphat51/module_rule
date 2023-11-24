@@ -1,0 +1,25 @@
+@startuml Dependency_Data
+' Image can be obtained from
+' https://www.plantuml.com/plantuml/uml/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000
+
+' Write all modules here
+object AB_DataA {
+    * list
+    * up
+}
+
+object AB_DataB {
+    * list
+    * up
+}
+
+object Vector {
+    * helpful
+    * functions
+}
+
+' Write all dependencies here
+' X --> Y means X depends on Y
+AB_DataA <-- AB_DataB
+
+@enduml
