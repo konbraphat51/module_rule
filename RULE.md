@@ -82,6 +82,6 @@ When `A_A_A` depends on `A_B_B`, in the case below:
 ![Image](https://user-images.githubusercontent.com/101827492/285468378-8136fd12-3065-419e-93cc-8a2729a641b8.png)  
 the **lowest-common package** is `A_directory`
 
-Draw a dependency on the UML of **lowest-common package**
+[Draw a dependency on the UML of **lowest-common package**](#drawing-dependency-uml)
 
 ## Drawing Dependency UML
