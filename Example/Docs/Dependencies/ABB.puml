@@ -25,5 +25,6 @@ object ABBB {
 ' X --> Y means X depends on Y
 ABBB --> ABBA : uses
 ABB --> ABBB : uses
+ABB --> ABBA : uses
 
 @enduml
