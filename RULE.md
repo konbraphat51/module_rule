@@ -24,7 +24,7 @@ This is intended for avoiding
 3. [**Only data-class** of super-modules is **ALLOWED** to import; but any other else **direct-super-modules** are **NOT** allowed to import.
    **Data-classes** must not depend on **logic-classes**, and should have each dependency UML for each level-1-directory.](#3-only-data-class-direct-super-module-is-allowed-to-import-but-any-other-else-direct-super-modules-are-not-allowed-to-import-data-classes-must-not-depend-on-logic-classes-and-should-have-each-dependency-uml-for-each-level-1-directory)
 4. [If need to depend on another package, create/update the Modules Dependency UML of the **lowest-common** package.](#4-if-need-to-depend-on-another-package-createupdate-the-modules-dependency-uml-of-the-lowest-common-package)
-5. If there are **sub-modules** of module A, **make a package** A and put them all in it. **And conceal the package able to used as a single module by `__init__.py`**
+5. [If there are **sub-modules** of module A, **make a package** A and put them all in it. **And conceal the package able to used as a single module by `__init__.py`**](#5-if-there-are-sub-modules-of-module-a-make-a-package-a-and-put-them-all-in-it-and-conceal-the-package-able-to-used-as-a-single-module-by-__init__py)
 6. If import the **co-directory module**: import by **module** name  
    If import the **sub-directory**: import by **package** name (=sub-directory name)
 7. If using another level-1 directory module: import by level-1 **package** name  
@@ -83,5 +83,29 @@ When `A_A_A` depends on `A_B_B`, in the case below:
 the **lowest-common package** is `A_directory`
 
 [Draw a dependency on the UML of **lowest-common package**](#drawing-dependency-uml)
+
+#### 5. If there are **sub-modules** of module A, **make a package** A and put them all in it. **And conceal the package able to used as a single module by `__init__.py`**
+
+If the package `A` is like this:  
+![image](https://github.com/konbraphat51/module_rule/assets/101827492/136e7d9f-6b09-41f5-876b-d451dbaf3bee)
+
+`AB` and `AC` are **sub-modules** of `AA`, so make a `AA` package like this:  
+![image](https://github.com/konbraphat51/module_rule/assets/101827492/4421c74a-4ca2-4810-b1b6-fd1b8c5a4cdd)
+
+And **conceal the structure of the sub-package**, and make it usable as a **module** by `__init__.py`
+
+Write `AA\__init__.py` as:
+
+```python
+from A.AA.AA import aa
+```
+
+So, `A.py` can use it as
+
+```python
+from A.AA import aa
+```
+
+as if `AA` package were a module.
 
 ## Drawing Dependency UML
