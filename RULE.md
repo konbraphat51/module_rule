@@ -154,3 +154,14 @@ This rule is for avoiding circular reference.
 [Don't forget to draw UML](#drawing-dependency-uml)
 
 ## Drawing Dependency UML
+
+The main indent purpose of drawing Dependency UML is to **avoid circular dependency**.
+
+If your UML has a cycle like this:  
+![image](https://user-images.githubusercontent.com/101827492/285475790-9f48b8e2-6ea5-4f2d-9d0e-f54a92c832c6.png)
+
+This means you have an circular dependency, which will typically make a system error.
+
+Drive out every last of them.
+
+[PlantUML](https://plantuml.com/en/) is recommended to use for drawing UML
