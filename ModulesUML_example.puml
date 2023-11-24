@@ -1,4 +1,4 @@
-@startuml Modules
+@startuml Dependency_
 
 ' Write all modules here
 object ModuleA {
