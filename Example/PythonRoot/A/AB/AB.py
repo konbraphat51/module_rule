@@ -2,7 +2,7 @@
 from PythonRoot.A.AB.ABA import aba
 from PythonRoot.A.AB.ABB import abb
 
-from PythonRoot.A.AB.AB_DataB import AB_DataB
+from PythonRoot.Utils import AB_DataB
 
 def ab():
     aba()
