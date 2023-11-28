@@ -20,10 +20,10 @@ This is intended for avoiding
    **Data-classes** must not depend on **logic-classes**, and should have each dependency UML for all directory.](#3-only-data-class-of-super-modules-is-allowed-to-import-but-any-other-else-direct-super-modules-are-not-allowed-to-import-data-classes-must-not-depend-on-logic-classes-and-should-have-each-dependency-uml-for-all-directory)
 4. [If need to depend on another package, create/update the Modules Dependency UML of the **lowest-common** package.](#4-if-need-to-depend-on-another-package-createupdate-the-modules-dependency-uml-of-the-lowest-common-package)
 5. [If there are **sub-modules** of module A, **make a package** A and put them all in it. **And conceal the package able to used as a single module by `__init__.py`**](#5-if-there-are-sub-modules-of-module-a-make-a-package-a-and-put-them-all-in-it-and-conceal-the-package-able-to-used-as-a-single-module-by-__init__py)
-6. [If import the **co-directory module**: import by **module** name
-   If import the **sub-directory**: import by **package** name (=sub-directory name)](#6-if-import-the-co-directory-module-import-by-module-name-if-import-the-sub-directory-import-by-package-name-sub-directory-name)
-7. [If using another level-1 directory module: import by level-1 **package** name  
-   If using the same level-1 directory module: import by **module** name](#7-if-using-another-level-1-directory-module-import-by-level-1-package-name-if-using-the-same-level-1-directory-module-import-by-module-name)
+6. [If import the **co-directory module**: import by **module** name.  
+   If import the **sub-directory**: import by **package** name. (=sub-directory name)](#6-if-import-the-co-directory-module-import-by-module-name-if-import-the-sub-directory-import-by-package-name-sub-directory-name)
+7. [If using another level-1 directory module: import by level-1 **package** name.  
+   If using the same level-1 directory module: import by **module** name.](#7-if-using-another-level-1-directory-module-import-by-level-1-package-name-if-using-the-same-level-1-directory-module-import-by-module-name)
 
 ### Details
 
