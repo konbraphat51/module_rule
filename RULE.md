@@ -22,8 +22,8 @@ This is intended for avoiding
 5. [If there are **sub-modules** of module A, **make a package** A and put them all in it. **And conceal the package able to used as a single module by `__init__.py`**](#5-if-there-are-sub-modules-of-module-a-make-a-package-a-and-put-them-all-in-it-and-conceal-the-package-able-to-used-as-a-single-module-by-__init__py)
 6. [If import the **co-directory module**: import by **module** name.  
    If import the **sub-directory**: import by **package** name. (=sub-directory name)](#6-if-import-the-co-directory-module-import-by-module-name-if-import-the-sub-directory-import-by-package-name-sub-directory-name)
-7. [If using another level-1 directory module: import by level-1 **package** name.  
-   If using the same level-1 directory module: import by **module** name.](#7-if-using-another-level-1-directory-module-import-by-level-1-package-name-if-using-the-same-level-1-directory-module-import-by-module-name)
+7. [If using another level-1 package module: import by level-1 **package** name.  
+   If using the same level-1 package module: import by **module** name.](#7-if-using-another-level-1-directory-package-import-by-level-1-package-name-if-using-the-same-level-1-directory-package-import-by-module-name)
 
 ### Details
 
@@ -123,7 +123,7 @@ Of course, to enable importing from **package** name, your wanted function/class
 
 This rule is for avoiding circular reference.
 
-#### 7. If using another level-1 directory module: import by level-1 **package** name. If using the same level-1 directory module: import by **module** name.
+#### 7. If using another level-1 directory package: import by level-1 **package** name. If using the same level-1 directory package: import by **module** name.
 
 Among this example:  
 ![image](https://github.com/konbraphat51/module_rule/assets/101827492/ec92668f-ea44-404b-b32b-d28c91220f8e)
