@@ -152,4 +152,6 @@ This means you have an circular dependency, which will typically make a system e
 
 Drive out every last of them.
 
-[PlantUML](https://plantuml.com/en/) is recommended to use for drawing UML
+[PlantUML](https://plantuml.com/en/) is recommended to use for drawing UML.
+
+[puml template](https://github.com/konbraphat51/module_rule/blob/main/ModulesUML_example.puml)
