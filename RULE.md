@@ -15,15 +15,17 @@ This is intended for avoiding
 ### Keys
 
 1. [Basically depend on **sub-modules**. **Main module** should be the same name as the package(=directory) name, and the **sub-modules** in the **same directory**](#1-basically-depend-on-sub-modules-main-module-should-be-the-same-name-as-the-packagedirectory-name-and-the-sub-modules-in-the-same-directory)
-2. [When depends on **co-level** (in the same directory) module, you **MUST** create/update the Dependency UML of that directory.](#2-when-depends-on-co-level-in-the-same-directory-module-you-must-createupdate-the-modules-dependency-uml-of-that-directory)
-3. [**Only data-class** of super-modules is **ALLOWED** to import; but any other else **direct-super-modules** are **NOT** allowed to import.
-   **Data-classes** must not depend on **logic-classes**, and should have each dependency UML for all directory.](#3-only-data-class-of-super-modules-is-allowed-to-import-but-any-other-else-direct-super-modules-are-not-allowed-to-import-data-classes-must-not-depend-on-logic-classes-and-should-have-each-dependency-uml-for-all-directory)
-4. [If need to depend on another package, create/update the Modules Dependency UML of the **lowest-common** package.](#4-if-need-to-depend-on-another-package-createupdate-the-modules-dependency-uml-of-the-lowest-common-package)
-5. [If there are **sub-modules** of module A, **make a package** A and put them all in it. **And conceal the package able to used as a single module by `__init__.py`**](#5-if-there-are-sub-modules-of-module-a-make-a-package-a-and-put-them-all-in-it-and-conceal-the-package-able-to-used-as-a-single-module-by-__init__py)
-6. [If import the **co-directory module**: import by **module** name.  
-   If import the **sub-directory**: import by **package** name. (=sub-directory name)](#6-if-import-the-co-directory-module-import-by-module-name-if-import-the-sub-directory-import-by-package-name-sub-directory-name)
-7. [If using another level-1 package module: import by level-1 **package** name.  
-   If using the same level-1 package module: import by **module** name.](#7-if-using-another-level-1-directory-package-import-by-level-1-package-name-if-using-the-same-level-1-directory-package-import-by-module-name)
+
+2. [If there are **sub-modules** of module A, **make a package** A and put them all in it. **And conceal the package able to used as a single module by `__init__.py`**](#2-if-need-to-depend-on-another-package-createupdate-the-modules-dependency-uml-of-the-lowest-common-package)
+
+3. [When depends on **co-level** (in the same directory) module, you **MUST** create/update the Dependency UML of that directory.](#3-when-depends-on-co-level-in-the-same-directory-module-you-must-createupdate-the-modules-dependency-uml-of-that-directory)
+
+4. [If need to depend on another package, create/update the Modules Dependency UML of the **lowest-common** package.](#4-if-there-are-sub-modules-of-module-a-make-a-package-a-and-put-them-all-in-it-and-conceal-the-package-able-to-used-as-a-single-module-by-__init__py)
+
+5. [If import the **co-directory module**: import by **module** name.  
+   If import the **sub-directory**: import by **package** name. (=sub-directory name)](#5-if-import-the-co-directory-module-import-by-module-name-if-import-the-sub-directory-import-by-package-name-sub-directory-name)
+6. [If using another level-1 package module: import by level-1 **package** name.  
+   If using the same level-1 package module: import by **module** name.](#6-if-using-another-level-1-directory-package-import-by-level-1-package-name-if-using-the-same-level-1-directory-package-import-by-module-name)
 
 ### Details
 
@@ -39,7 +41,18 @@ In this case,
 `ABA.py` should import from `ABAA.py` or `ABAB.py` and **not from super-modules**.  
 **Super-modules** of `ABA.py` are `AB.py` and `AA.py`
 
-#### 2. When depends on **co-level** (in the same directory) module, you **MUST** create/update the Modules Dependency UML of that directory.
+#### 2. If need to depend on another package, create/update the Modules Dependency UML of the **lowest-common** package.
+
+**lowest-common** means:  
+ When `A->B` dependency, the lowest level directory of `A` and `B` exists.
+
+When `A_A_A` depends on `A_B_B`, in the case below:  
+![Image](https://user-images.githubusercontent.com/101827492/285468378-8136fd12-3065-419e-93cc-8a2729a641b8.png)  
+the **lowest-common package** is `A_directory`
+
+[Draw a dependency on the UML of **lowest-common package**](#drawing-dependency-uml)
+
+#### 3. When depends on **co-level** (in the same directory) module, you **MUST** create/update the Modules Dependency UML of that directory.
 
 ![image](https://github.com/konbraphat51/module_rule/assets/101827492/5c06ed97-eba3-41af-82cd-d350e5e221c2)
 
@@ -59,27 +72,7 @@ In this case, the Dependency UML of `ABB` package will be:
 
 ![image](https://github.com/konbraphat51/module_rule/assets/101827492/43a23278-f0d9-4406-a4e0-85f5e09cd692)
 
-#### 3. **Only data-class** of super-modules is **ALLOWED** to import; but any other else **direct-super-modules** are **NOT** allowed to import. **Data-classes** must not depend on **logic-classes**, and should have each dependency UML for all directory.
-
-**Data-class** is a class to contain a data, not processing anything. Because this class will be an interface between modules, this is specially allowed to import from super-modules.
-
-But **logid-class** (processing things) is not.
-
-Denpendency UML of **All data class** should be drawn like this:  
-![image](https://github.com/konbraphat51/module_rule/assets/101827492/efb16ffc-9bf8-4ede-80ab-854133cd3611)
-
-#### 4. If need to depend on another package, create/update the Modules Dependency UML of the **lowest-common** package.
-
-**lowest-common** means:  
- When `A->B` dependency, the lowest level directory of `A` and `B` exists.
-
-When `A_A_A` depends on `A_B_B`, in the case below:  
-![Image](https://user-images.githubusercontent.com/101827492/285468378-8136fd12-3065-419e-93cc-8a2729a641b8.png)  
-the **lowest-common package** is `A_directory`
-
-[Draw a dependency on the UML of **lowest-common package**](#drawing-dependency-uml)
-
-#### 5. If there are **sub-modules** of module A, **make a package** A and put them all in it. **And conceal the package able to used as a single module by `__init__.py`**
+#### 4. If there are **sub-modules** of module A, **make a package** A and put them all in it. **And conceal the package able to used as a single module by `__init__.py`**
 
 If the package `A` is like this:  
 ![image](https://github.com/konbraphat51/module_rule/assets/101827492/136e7d9f-6b09-41f5-876b-d451dbaf3bee)
@@ -103,7 +96,7 @@ from A.AA import aa
 
 as if `AA` package were a module.
 
-#### 6. If import the **co-directory module**: import by **module** name. If import the **sub-directory**: import by **package** name (=sub-directory name)
+#### 5. If import the **co-directory module**: import by **module** name. If import the **sub-directory**: import by **package** name (=sub-directory name)
 
 **module name** is refering the file path.  
 **package name** is refering the directory path.
@@ -123,7 +116,7 @@ Of course, to enable importing from **package** name, your wanted function/class
 
 This rule is for avoiding circular reference.
 
-#### 7. If using another level-1 directory package: import by level-1 **package** name. If using the same level-1 directory package: import by **module** name.
+#### 6. If using another level-1 directory package: import by level-1 **package** name. If using the same level-1 directory package: import by **module** name.
 
 Among this example:  
 ![image](https://github.com/konbraphat51/module_rule/assets/101827492/ec92668f-ea44-404b-b32b-d28c91220f8e)
