@@ -17,7 +17,7 @@ This is intended for avoiding
 1. [Basically depend on **sub-modules**. **Main module** should be the same name as the package(=directory) name, and the **sub-modules** in the **same directory**](#1-basically-depend-on-sub-modules-main-module-should-be-the-same-name-as-the-packagedirectory-name-and-the-sub-modules-in-the-same-directory)
 2. [When depends on **co-level** (in the same directory) module, you **MUST** create/update the Dependency UML of that directory.](#2-when-depends-on-co-level-in-the-same-directory-module-you-must-createupdate-the-modules-dependency-uml-of-that-directory)
 3. [**Only data-class** of super-modules is **ALLOWED** to import; but any other else **direct-super-modules** are **NOT** allowed to import.
-   **Data-classes** must not depend on **logic-classes**, and should have each dependency UML for each level-1-directory.](#3-only-data-class-of-super-modules-is-allowed-to-import-but-any-other-else-direct-super-modules-are-not-allowed-to-import-data-classes-must-not-depend-on-logic-classes-and-should-have-each-dependency-uml-for-each-level-1-directory)
+   **Data-classes** must not depend on **logic-classes**, and should have each dependency UML for all directory.](#3-only-data-class-of-super-modules-is-allowed-to-import-but-any-other-else-direct-super-modules-are-not-allowed-to-import-data-classes-must-not-depend-on-logic-classes-and-should-have-each-dependency-uml-for-all-directory)
 4. [If need to depend on another package, create/update the Modules Dependency UML of the **lowest-common** package.](#4-if-need-to-depend-on-another-package-createupdate-the-modules-dependency-uml-of-the-lowest-common-package)
 5. [If there are **sub-modules** of module A, **make a package** A and put them all in it. **And conceal the package able to used as a single module by `__init__.py`**](#5-if-there-are-sub-modules-of-module-a-make-a-package-a-and-put-them-all-in-it-and-conceal-the-package-able-to-used-as-a-single-module-by-__init__py)
 6. [If import the **co-directory module**: import by **module** name
@@ -59,7 +59,7 @@ In this case, the Dependency UML of `ABB` package will be:
 
 ![image](https://github.com/konbraphat51/module_rule/assets/101827492/43a23278-f0d9-4406-a4e0-85f5e09cd692)
 
-#### 3. **Only data-class** of super-modules is **ALLOWED** to import; but any other else **direct-super-modules** are **NOT** allowed to import. **Data-classes** must not depend on **logic-classes**, and should have each dependency UML for each level-1-directory.
+#### 3. **Only data-class** of super-modules is **ALLOWED** to import; but any other else **direct-super-modules** are **NOT** allowed to import. **Data-classes** must not depend on **logic-classes**, and should have each dependency UML for all directory.
 
 **Data-class** is a class to contain a data, not processing anything. Because this class will be an interface between modules, this is specially allowed to import from super-modules.
 
